@@ -9,19 +9,20 @@
     <script>
         function onMessage(msg) {
             if(typeof msg !== undefined)
-                _satellite.setVar("iFrame - ECID", msg.ecid)
+                _satellite.setVar("iFrame - ECID", msg.ecid)                    
         }
     </script>
 </head>
 
 <body>
-    <form class="container mt-4" style="padding-top:100px">
-        <div class="form-group">
-            <label for="amount">Amount:</label>
-            <input type="text" class="form-control" id="amount" placeholder="Enter amount">
+    <div class="container">
+        <div class="row">
+          <div class="col text-center" style="margin-top: 120px;">
+            <img src="https://demo-system-next.s3.eu-north-1.amazonaws.com/argon/upload/dev/angeli-51V3/yoga-thumbnail" class="img-fluid mx-auto" alt="Responsive Image">
+          </div>
         </div>
-        <button id="pay" type="button" class="btn btn-primary">Pay</button>
-    </form>
+      </div>
+    
 </body>
 
 </html>

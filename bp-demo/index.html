@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>BP - Charge and Pay</title>
+    <script src="https://assets.adobedtm.com/444761aa6c20/7046f49c98c1/launch-02b77d8f5f28-development.min.js"
+        async></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script>
+        function onMessage(msg) {
+            if(typeof msg !== undefined)
+                _satellite.setVar("iFrame - ECID", msg.ecid)                    
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+          <div class="col text-center" style="margin-top: 120px;">
+            <img src="https://demo-system-next.s3.eu-north-1.amazonaws.com/argon/upload/dev/angeli-51V3/charge-and-pay-thumbnail" class="img-fluid mx-auto" alt="Responsive Image">
+          </div>
+          
+        </div>
+        <div class="d-grid gap-2 col-6 mx-auto">
+            <button style="font-size: 3em; width:100%; background-color: #387C21;" id="pay" type="button" class="btn btn-primary">Pay</button>
+        </div>
+      </div>
+    
+</body>
+
+</html>
