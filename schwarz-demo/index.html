@@ -6,6 +6,7 @@
     <script src="js/qrcodejs/qrcode.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script>
+        window.testMode = document.location.search.indexOf("test=true") > 0
         var url = 'https://dsn.adobe.com/cx2/sacker-ZNZ3/ecid/'
         function onMessage(msg) {
             alert("onMessage triggered")
@@ -44,7 +45,10 @@
             </div>
         </div>
     </div>
-    <script> // new QRCode(document.getElementById("qrcode"), "http://jindo.dev.naver.com/collie");</script>
+    <script> 
+        if(window.testMode)
+            new QRCode(document.getElementById("qrcode"), "http://jindo.dev.naver.com/collie");
+    </script>
 </body>
 
 </html>
