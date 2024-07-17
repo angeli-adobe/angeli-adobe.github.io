@@ -8,25 +8,81 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script>
         function onMessage(msg) {
-            if(typeof msg !== undefined)
-                _satellite.setVar("iFrame - ECID", msg.ecid)                    
+            if (typeof msg !== undefined)
+                _satellite.setVar("iFrame - ECID", msg.ecid)
         }
     </script>
+    
+    <style>
+        .center-vertically {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 10vh;
+            font-size: 4em;
+            background-color: #CBFF00;
+            border-radius: 25px;
+            margin-top: 1em;
+            margin-bottom: 1em;
+        }
+    </style>
 </head>
 
 <body>
     <div class="container">
         <div class="row">
-          <div class="col text-center" style="margin-top: 120px;">
-            <img src="https://demo-system-next.s3.eu-north-1.amazonaws.com/argon/upload/dev/angeli-51V3/charge-and-pay-thumbnail" class="img-fluid mx-auto" alt="Responsive Image">
-          </div>
-          
+            <div class="col text-center" style="margin-top: 120px;">
+                <img src="https://demo-system-next.s3.eu-north-1.amazonaws.com/argon/upload/dev/angeli-51V3/charge-and-pay-thumbnail"
+                    class="img-fluid mx-auto" alt="Responsive Image">
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col text-center">
+                <div class="center-vertically">
+                    <p>You are the station: <br><span id="charginPoint">XXX</span>. </p>
+                </div>
+            </div>
+            
         </div>
         <div class="d-grid gap-2 col-6 mx-auto">
-            <button style="font-size: 3em; width:100%; background-color: #387C21;" id="pay" type="button" class="btn btn-primary">Pay</button>
+            <button style="font-size: 3em; width:100%; background-color: #387C21;" id="pay" type="button"
+                class="btn btn-primary">Charge</button>
         </div>
-      </div>
-    
+    </div>
+
+    <script>
+        let cp = selectRandomChargingPoint();
+        let element = document.getElementById("charginPoint");
+        element.innerText = cp.name;
+        element.setAttribute("data-latitude", cp.latitude);
+        element.setAttribute("data-longitude", cp.longitude);
+        element.setAttribute("data-siteid", cp.siteid);        
+        element.setAttribute("data-cp", cp.chargepointid);
+        window.cpCoordinates = cp;      
+        function selectRandomChargingPoint()
+        {
+            let cp = [
+                {
+                    name: "Berlin",
+                    latitude: 52.513818528991,
+                    longitude: 13.422420778396,
+                    siteid: "456",
+                    chargepointid: "240937"
+                },
+                {
+                    name: "Düsseldorf",
+                    latitude: 51.200937645353,
+                    longitude: 6.762803792953,
+                    siteid: "123",
+                    chargepointid: "328925"
+                }
+            ]
+            
+            return cp[Math.abs(Math.floor(Math.random() * cp.length - 1))]            
+        }
+    </script>
 </body>
 
 </html>
