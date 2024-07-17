@@ -9,12 +9,10 @@
         window.testMode = document.location.search.indexOf("test=true") > 0
         var url = 'https://dsn.adobe.com/cx2/sacker-ZNZ3/ecid/'
         function onMessage(msg) {
-            alert("onMessage triggered")
             if (typeof msg !== undefined) {
                 url = url + msg.ecid
                 new QRCode(document.getElementById("qrcode"), url);
                 // alert(JSON.stringify(msg))
-                //_satellite.setVar("iFrame - ECID", msg.ecid)
             }
             
         }
