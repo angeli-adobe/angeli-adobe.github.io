@@ -8,10 +8,11 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script>
         function onMessage(msg) {
+            alert("onMessage triggered")
             if (typeof msg !== undefined)
         {
             alert(JSON.stringify(msg))
-            _satellite.setVar("iFrame - ECID", msg.ecid)
+            //_satellite.setVar("iFrame - ECID", msg.ecid)
         }
             
         }
