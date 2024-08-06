@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Schwarz - QR Code</title>
+    <script src="js/qrcodejs/qrcode.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script>
+        window.testMode = document.location.search.indexOf("test=true") > 0
+        var url = 'https://dsn.adobe.com/cx2/bouttier-VFYD/ecid/'
+        function onMessage(msg) {
+            if (typeof msg !== undefined) {
+                url = url + msg.ecid
+                new QRCode(document.getElementById("qrcode"), url);
+                // alert(JSON.stringify(msg))
+            }
+            
+        }
+        
+    </script>
+
+    <style>
+        .center-vertically {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 10vh;
+            font-size: 4em;
+            background-color: #CBFF00;
+            border-radius: 25px;
+            margin-top: 1em;
+            margin-bottom: 1em;
+        }
+        #qrcode > img {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col text-center" style="margin-top: 120px;">
+                <div id="qrcode" class="img-fluid mx-auto" alt="Responsive Image">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script> 
+        if(window.testMode)
+            new QRCode(document.getElementById("qrcode"), "http://jindo.dev.naver.com/collie");
+    </script>
+</body>
+
+</html>
